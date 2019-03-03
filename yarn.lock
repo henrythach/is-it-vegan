@@ -6102,11 +6102,6 @@ is-utf8@^0.2.0:
   resolved "https://registry.yarnpkg.com/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
   integrity sha1-Sw2hRCEE0bM2NA6AeX6GXPOffXI=
 
-is-vegan@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/is-vegan/-/is-vegan-1.1.4.tgz#75907f1fff863aac9df5bb6e2be6f9b67cf25145"
-  integrity sha512-Vh9OTkcQOlRkzxO4oB/fAltR9J6qNYkEKdH6OOCuZY/nUxNRHPH06GW3UBcNzDFDqmGqQBnexQyBnOKiU+wngg==
-
 is-windows@^1.0.1, is-windows@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/is-windows/-/is-windows-1.0.2.tgz#d1850eb9791ecd18e6182ce12a30f396634bb19d"
