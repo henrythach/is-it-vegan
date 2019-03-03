@@ -1,34 +1,45 @@
-import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import AppBar from '@material-ui/core/AppBar'
+import { Toolbar, Typography, InputBase } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
+import SearchIcon from '@material-ui/icons/Search'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to='/'
-          style={{
-            color: `white`,
-            textDecoration: `none`
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+const styles = theme => ({
+  inputRoot: {
+    color: 'inherit'
+  },
+  inputInput: {
+    paddingTop: theme.spacing.unit,
+    paddingRight: theme.spacing.unit,
+    paddingBottom: theme.spacing.unit,
+    paddingLeft: theme.spacing.unit,
+    transition: theme.transitions.create('width'),
+    // width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 120,
+      '&:focus': {
+        width: 200
+      }
+    }
+  }
+})
+
+const Header = ({ siteTitle, classes }) => (
+  <AppBar position='static'>
+    <Toolbar>
+      <SearchIcon />
+      <InputBase
+        placeholder='Search ingredient'
+        fullWidth
+        autoFocus
+        classes={{
+          root: classes.inputRoot,
+          input: classes.inputInput
+        }}
+      />
+    </Toolbar>
+  </AppBar>
 )
 
 Header.propTypes = {
@@ -39,4 +50,4 @@ Header.defaultProps = {
   siteTitle: ``
 }
 
-export default Header
+export default withStyles(styles)(Header)
