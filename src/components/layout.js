@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
-import './layout.css'
+import { CssBaseline } from '@material-ui/core'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -25,6 +25,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
+        <CssBaseline />
         <Header siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
       </>

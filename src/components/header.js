@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import AppBar from '@material-ui/core/AppBar'
-import { Toolbar, Typography, InputBase } from '@material-ui/core'
+import { Toolbar, InputBase } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import SearchIcon from '@material-ui/icons/Search'
 
