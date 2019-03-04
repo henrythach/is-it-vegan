@@ -57,7 +57,7 @@ const IndexPage = ({ classes }) => {
     <>
       <SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
       <CssBaseline />
-      <AppBar position='static'>
+      <AppBar position='sticky'>
         <Toolbar>
           <SearchIcon />
           <InputBase
