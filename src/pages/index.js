@@ -10,7 +10,7 @@ import {
   InputBase,
   CssBaseline
 } from '@material-ui/core'
-import * as ingredients from '../data/non-vegan.json'
+import ingredients from '../data/non-vegan'
 import { withStyles } from '@material-ui/core/styles'
 import SearchIcon from '@material-ui/icons/Search'
 
