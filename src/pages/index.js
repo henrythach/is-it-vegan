@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { graphql } from 'gatsby'
 
 import SEO from '../components/seo'
 import {
@@ -10,7 +11,6 @@ import {
   InputBase,
   CssBaseline
 } from '@material-ui/core'
-import ingredients from '../data/non-vegan'
 import { withStyles } from '@material-ui/core/styles'
 import SearchIcon from '@material-ui/icons/Search'
 
@@ -33,24 +33,11 @@ const styles = theme => ({
   }
 })
 
-const Ingredient = ({ title }) => (
-  <ListItem>
-    <ListItemText primary={title} secondary='Not vegan' />
-  </ListItem>
-)
-
-const Ingredients = ({ ingredients }) => (
-  <List dense>
-    {ingredients.map((d, index) => (
-      <Ingredient key={index} title={d} />
-    ))}
-  </List>
-)
-
-const IndexPage = ({ classes }) => {
+const IndexPage = ({ data, classes }) => {
+  const ingredients = data.ingredients.edges.map(e => e.node)
   const [searchQuery, setSearchQuery] = useState('')
   const filteredIngredients = ingredients
-    .filter(i => i.toLowerCase().includes(searchQuery.trim().toLowerCase()))
+    .filter(ingredient => ingredient.name.toLowerCase().includes(searchQuery.trim().toLowerCase()))
     .slice(0, 25)
 
   return (
@@ -73,9 +60,30 @@ const IndexPage = ({ classes }) => {
           />
         </Toolbar>
       </AppBar>
-      <Ingredients ingredients={filteredIngredients} />
+      <List dense>
+        {filteredIngredients.map((ingredient, index) => (
+          <ListItem key={index}>
+            <ListItemText
+              primary={ingredient.name}
+              secondary={ingredient.description || 'Not vegan'} />
+          </ListItem>
+        ))}
+      </List>
     </>
   )
 }
 
 export default withStyles(styles)(IndexPage)
+
+export const query = graphql`
+  {
+    ingredients: allNonVeganYaml {
+      edges {
+        node {
+          name
+          description
+        }
+      }
+    }
+  }
+`
