@@ -19,12 +19,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `is-it-vegan`,
+        short_name: `Is It Vegan?`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
+        display: `standalone`,
         icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
       }
     },
